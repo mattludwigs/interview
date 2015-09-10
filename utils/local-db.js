@@ -1,5 +1,7 @@
 import _ from 'lodash';
 
+// db object to work with localStorage 
+
 const db = {
 
 	save (obj) {
