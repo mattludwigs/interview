@@ -7,7 +7,7 @@ const db = {
 			this.storageReferrence.push(obj);
 		}
 		localStorage.setItem(this.dataBaseName, JSON.stringify(this.storageReferrence));
-		this._getStorage();
+		this.getStorage();
 		return this;
 	},
 
@@ -23,16 +23,21 @@ const db = {
 		});
 	},
 
+	clearStorage () {
+		var data = JSON.stringify(this.storageReferrence);
+		this.storageReferrence = [];
+		localStorage.setItem(this.dataBaseName, data);
+		return this;
+	},
+
 	delete (query) {
 		if (query === 'all') {
-			var data = JSON.stringify(this.storageReferrence);
-			this.storageReferrence = [];
-			localStorage.setItem(this.dataBaseName, data);
+			this.clearStorage();
 		}
 
-		this.storageReferrence = this.storageReferrence.filter(function  filterDeleteQuery (todo) {
-			if (!_.isEqual(todo, query)) {
-				return todo;
+		this.storageReferrence = this.storageReferrence.filter(function  filterDeleteQuery (item) {
+			if (!_.isEqual(item, query)) {
+				return item;
 			}
 		});
 
@@ -40,15 +45,14 @@ const db = {
 		return this;
 	},
 
-
-	_getStorage () {
+	getStorage () {
 		this.storageReferrence = JSON.parse(localStorage.getItem(this.dataBaseName));
 		return this;
 	},
 
 	connect(database) {
 		this.dataBaseName = this.dataBaseName || database;
-		this._getStorage();
+		this.getStorage();
 		if (!this.storageReferrence) {
 			localStorage.setItem(this.dataBaseName, '[]');
 		}
@@ -59,5 +63,3 @@ const db = {
 }
 
 export default db;
-
-

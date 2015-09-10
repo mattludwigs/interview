@@ -10,7 +10,7 @@ const HomePage = React.createClass({
     return (
       <div>
         <Header />
-        <div className="container" style={{ marginTop : '50px' }}>
+        <div className="container todo-app" style={{ marginTop : '50px' }}>
           <h3>Todo List</h3>
           <TodoInput />
           <TodoList />

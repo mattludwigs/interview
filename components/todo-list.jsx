@@ -1,4 +1,5 @@
 import React from 'react';
+import Todo from './todo';
 import TodoStore from '../stores/todo-store';
 import TodoActions from '../actions/todo-actions';
 
@@ -25,21 +26,18 @@ const TodoList = React.createClass({
 		TodoActions.delete(todo);
 	},
 
+  renderTodoItem (todo) {
+    return <Todo 
+      key={todo.id} 
+      todo={todo} 
+      deleteHandler={this.deleteTodo.bind(this, todo)} />
+  },
+
   render() {
     return (
-      <div>
-        <ul>
-        	{this.state.todos.map(function (todo) {
-        		return (
-        			<li key={todo.id}>
-        				<p>{todo.todo}</p>
-        				<button onClick={this.deleteTodo.bind(this, todo)}>X</button>
-        			</li>
-        		)
-        		
-        	}.bind(this))}
-        </ul>
-      </div>
+      <ul>
+      	{this.state.todos.map(this.renderTodoItem)}
+      </ul>
     );
   },
 });

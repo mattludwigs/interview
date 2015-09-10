@@ -31,5 +31,9 @@
     "url": "https://github.com/colonyamerican/interview/issues"
   },
   "homepage": "https://github.com/colonyamerican/interview#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "node-sass": "^3.3.2",
+    "sass-loader": "^2.0.1"
+  }
 }

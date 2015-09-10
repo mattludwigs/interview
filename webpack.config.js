@@ -50,6 +50,10 @@ module.exports = {
         exclude : /node_modules/,
         loaders : [ 'react-hot', 'babel?stage=1' ],
       },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass' 
+      }
     ],
   },
 };

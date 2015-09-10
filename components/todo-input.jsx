@@ -17,7 +17,6 @@ const TodoInput = React.createClass({
 			<div>
 				<form onSubmit={this.addTodo}>
 					<input type='text' placeholder='Todo'/>
-					<input type='submit' value='Add Todo'></input>
 				</form>
 			</div>
 		)
