@@ -33,7 +33,9 @@
   "homepage": "https://github.com/colonyamerican/interview#readme",
   "description": "",
   "devDependencies": {
+    "css-loader": "^0.17.0",
     "node-sass": "^3.3.2",
-    "sass-loader": "^2.0.1"
+    "sass-loader": "^2.0.1",
+    "style-loader": "^0.12.3"
   }
 }
